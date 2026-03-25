@@ -42,7 +42,13 @@ function waitForProvider(provider: WebrtcProvider): Promise<void> {
 
 export const connection: Promise<Connection> = (async () => {
   const doc = new Y.Doc();
-  const provider = new WebrtcProvider(resolveRoomId(), doc);
+  const provider = new WebrtcProvider(resolveRoomId(), doc, {
+    signaling: [
+      "wss://y-webrtc-signaling-eu.herokuapp.com",
+      "wss://y-webrtc-signaling-us.herokuapp.com",
+      "wss://signaling.yjs.dev",
+    ],
+  });
 
   await waitForProvider(provider);
   store.yjs.connect(doc);
