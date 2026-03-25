@@ -1,0 +1,90 @@
+{
+  "name": "zustand-yjs",
+  "version": "0.1.0",
+  "description": "Yjs middleware for Zustand — real-time collaboration via CRDTs",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/",
+    "size": "size-limit",
+    "prepublishOnly": "npm run build"
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "4 kB"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brian7989/zustand-yjs.git"
+  },
+  "homepage": "https://github.com/brian7989/zustand-yjs#readme",
+  "bugs": {
+    "url": "https://github.com/brian7989/zustand-yjs/issues"
+  },
+  "keywords": [
+    "zustand",
+    "yjs",
+    "crdt",
+    "middleware",
+    "real-time",
+    "collaboration",
+    "sync",
+    "multiplayer"
+  ],
+  "peerDependencies": {
+    "immer": ">=9.0.0",
+    "y-protocols": ">=1.0.0",
+    "yjs": ">=13.5.0",
+    "zustand": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "immer": {
+      "optional": true
+    },
+    "y-protocols": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^12.0.1",
+    "@types/node": "^20.0.0",
+    "eslint": "^9.0.0",
+    "immer": "^10.0.0",
+    "react": "^19.2.4",
+    "size-limit": "^12.0.1",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.57.2",
+    "vitest": "^2.0.0",
+    "y-websocket": "^2.0.0",
+    "yjs": "^13.6.0",
+    "zundo": "^2.0.0",
+    "zustand": "^5.0.0"
+  }
+}
