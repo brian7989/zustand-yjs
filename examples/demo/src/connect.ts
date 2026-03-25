@@ -1,9 +1,9 @@
 import * as Y from "yjs";
-import { WebrtcProvider } from "y-webrtc";
+import YProvider from "y-partykit/provider";
 import { nanoid } from "nanoid";
 import { createAwareness, createUndoManager } from "yjs-zustand";
 import type { AwarenessStore, UndoManager } from "yjs-zustand";
-import { store } from "./store";
+import { store, STORE_MAP_NAME } from "./store";
 
 // --- Types ---
 
@@ -20,6 +20,7 @@ export interface Connection {
 
 // --- Helpers ---
 
+const PARTYKIT_HOST = "yjs-zustand-demo.brian7989.partykit.dev";
 const COLORS = ["#f06595", "#845ef7", "#339af0", "#20c997", "#fab005", "#ff6b6b"];
 const pick = <T,>(arr: T[]) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -31,26 +32,19 @@ function resolveRoomId(): string {
   return id;
 }
 
-function waitForProvider(provider: WebrtcProvider): Promise<void> {
-  return new Promise((resolve) => {
-    const timeout = setTimeout(resolve, 1000);
-    provider.on("synced", () => { clearTimeout(timeout); resolve(); });
-  });
-}
-
 // --- Exported promise (consumed via React 19 `use()`) ---
 
 export const connection: Promise<Connection> = (async () => {
   const doc = new Y.Doc();
-  const provider = new WebrtcProvider(resolveRoomId(), doc, {
-    signaling: [
-      "wss://y-webrtc-signaling-eu.herokuapp.com",
-      "wss://y-webrtc-signaling-us.herokuapp.com",
-      "wss://signaling.yjs.dev",
-    ],
+  const roomId = resolveRoomId();
+
+  const provider = new YProvider(PARTYKIT_HOST, roomId, doc);
+  await new Promise<void>((resolve) => {
+    if (provider.synced) { resolve(); return; }
+    const timeout = setTimeout(resolve, 1500);
+    provider.on("synced", () => { clearTimeout(timeout); resolve(); });
   });
 
-  await waitForProvider(provider);
   store.yjs.connect(doc);
 
   return {

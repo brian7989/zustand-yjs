@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/zustand-yjs/",
   resolve: {
-    dedupe: ["yjs"],
+    dedupe: ["yjs", "react", "react-dom"],
   },
 });

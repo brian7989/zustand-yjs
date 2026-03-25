@@ -6,18 +6,19 @@
     "dev": "vite",
     "dev:host": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "party:dev": "partykit dev",
+    "party:deploy": "partykit deploy"
   },
   "dependencies": {
     "@mantine/core": "^7.0.0",
     "@mantine/hooks": "^7.17.8",
     "@tabler/icons-react": "^3.40.0",
-    "@use-gesture/react": "^10.3.0",
     "nanoid": "^5.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "y-partykit": "^0.0.33",
     "y-protocols": "^1.0.0",
-    "y-webrtc": "^10.3.0",
     "yjs": "^13.6.0",
     "yjs-zustand": "file:../../",
     "zustand": "^5.0.0"
@@ -26,6 +27,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.0",
+    "partykit": "^0.0.115",
     "postcss": "^8.4.0",
     "postcss-preset-mantine": "^1.17.0",
     "typescript": "^5.4.0",

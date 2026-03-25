@@ -1,0 +1,4 @@
+{
+  "name": "yjs-zustand-demo",
+  "main": "party/index.ts"
+}
