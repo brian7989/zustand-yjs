@@ -37,7 +37,7 @@ import { structuralPatch } from "./patch-store.js";
  * @example
  * ```ts
  * import { create } from "zustand";
- * import { yjs } from "zustand-yjs";
+ * import { yjs } from "yjs-zustand";
  *
  * const useStore = create(yjs("shared", (set) => ({
  *   count: 0,
@@ -102,7 +102,7 @@ export const yjs = (<T>(
       connect(doc: Y.Doc) {
         if (currentDoc) {
           throw new Error(
-            "zustand-yjs: Already connected. Call disconnect() first, or use switchRoom().",
+            "yjs-zustand: Already connected. Call disconnect() first, or use switchRoom().",
           );
         }
 

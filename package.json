@@ -1,5 +1,5 @@
 {
-  "name": "zustand-yjs",
+  "name": "yjs-zustand",
   "version": "0.1.0",
   "description": "Yjs middleware for Zustand — real-time collaboration via CRDTs",
   "type": "module",

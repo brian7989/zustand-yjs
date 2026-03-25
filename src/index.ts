@@ -1,11 +1,11 @@
 /**
- * zustand-yjs — Production-quality Yjs middleware for Zustand.
+ * yjs-zustand — Production-quality Yjs middleware for Zustand.
  *
  * @example
  * ```ts
  * import * as Y from "yjs";
  * import { create } from "zustand";
- * import { yjs } from "zustand-yjs";
+ * import { yjs } from "yjs-zustand";
  *
  * const doc = new Y.Doc();
  *

@@ -1,5 +1,5 @@
 /**
- * Public types and constants for zustand-yjs.
+ * Public types and constants for yjs-zustand.
  */
 
 import type * as Y from "yjs";
@@ -143,7 +143,7 @@ export interface YjsConnection {
 declare module "zustand/vanilla" {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   interface StoreMutators<S, A> {
-    "zustand-yjs": Write<S, { yjs: YjsConnection }>;
+    "yjs-zustand": Write<S, { yjs: YjsConnection }>;
   }
 }
 
@@ -161,9 +161,9 @@ export type Yjs = <
   Mcs extends [StoreMutatorIdentifier, unknown][] = [],
 >(
   mapName: string,
-  creator: import("zustand").StateCreator<T, [...Mps, ["zustand-yjs", never]], Mcs>,
+  creator: import("zustand").StateCreator<T, [...Mps, ["yjs-zustand", never]], Mcs>,
   options?: YjsOptions<T>,
-) => import("zustand").StateCreator<T, Mps, [["zustand-yjs", never], ...Mcs]>;
+) => import("zustand").StateCreator<T, Mps, [["yjs-zustand", never], ...Mcs]>;
 
 // ---------------------------------------------------------------------------
 // Store extensions — convenience types
@@ -221,7 +221,7 @@ export interface UndoManager {
 // ---------------------------------------------------------------------------
 
 /** Branded symbol used as the Yjs transaction origin to prevent echo. */
-export const ORIGIN = Symbol.for("zustand-yjs");
+export const ORIGIN = Symbol.for("yjs-zustand");
 
 /**
  * Passed as the second argument to Zustand's `set()` to indicate a full

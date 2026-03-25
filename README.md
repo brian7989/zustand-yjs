@@ -1,9 +1,9 @@
-# zustand-yjs
+# yjs-zustand
 
 [Yjs](https://yjs.dev/) middleware for [Zustand](https://zustand.docs.pmnd.rs/). Sync any Zustand store with a `Y.Doc` for real-time collaboration.
 
 ```
-npm install zustand-yjs yjs
+npm install yjs-zustand yjs
 ```
 
 ## Quick Start
@@ -11,7 +11,7 @@ npm install zustand-yjs yjs
 ```ts
 import * as Y from "yjs";
 import { create } from "zustand";
-import { yjs } from "zustand-yjs";
+import { yjs } from "yjs-zustand";
 
 const useStore = create(
   yjs("shared", (set) => ({
@@ -31,7 +31,7 @@ The store works locally before `connect()`. Once connected, local changes push t
 ```ts
 import * as Y from "yjs";
 import { WebsocketProvider } from "y-websocket";
-import { createYjsStore } from "zustand-yjs";
+import { createYjsStore } from "yjs-zustand";
 
 const store = createYjsStore("shared", (set) => ({
   todos: [] as { id: string; text: string; done: boolean }[],
@@ -152,7 +152,7 @@ npm install y-protocols
 ```
 
 ```ts
-import { createAwareness } from "zustand-yjs";
+import { createAwareness } from "yjs-zustand";
 
 const presence = createAwareness(provider.awareness, {
   name: "Anonymous",
@@ -169,7 +169,7 @@ presence.destroy();
 Uses Yjs's `Y.UndoManager` to undo only **your own** changes, not your collaborators'. The store must be connected first.
 
 ```ts
-import { createUndoManager } from "zustand-yjs";
+import { createUndoManager } from "yjs-zustand";
 
 const undo = createUndoManager(store);
 
@@ -199,13 +199,13 @@ create(devtools(immer(yjs("shared", (set) => ({ ... })))));
 
 ### `ORIGIN`
 
-The `Symbol` used as the Yjs transaction origin. Exported so you can distinguish zustand-yjs transactions from your own:
+The `Symbol` used as the Yjs transaction origin. Exported so you can distinguish yjs-zustand transactions from your own:
 
 ```ts
-import { ORIGIN } from "zustand-yjs";
+import { ORIGIN } from "yjs-zustand";
 
 doc.on("update", (update, origin) => {
-  if (origin === ORIGIN) { /* came from zustand-yjs */ }
+  if (origin === ORIGIN) { /* came from yjs-zustand */ }
 });
 ```
 

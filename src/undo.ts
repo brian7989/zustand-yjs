@@ -8,7 +8,7 @@
  *
  * @example
  * ```ts
- * import { createYjsStore, createUndoManager } from "zustand-yjs";
+ * import { createYjsStore, createUndoManager } from "yjs-zustand";
  *
  * const store = createYjsStore("shared", (set) => ({
  *   count: 0,
@@ -50,7 +50,7 @@ export function createUndoManager<T>(
 
   if (!yMap) {
     throw new Error(
-      "zustand-yjs: Cannot create undo manager — store is not connected. " +
+      "yjs-zustand: Cannot create undo manager — store is not connected. " +
       "Call store.yjs.connect(doc) first.",
     );
   }

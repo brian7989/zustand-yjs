@@ -11,7 +11,7 @@
  * @example
  * ```ts
  * import { WebsocketProvider } from "y-websocket";
- * import { createAwareness } from "zustand-yjs";
+ * import { createAwareness } from "yjs-zustand";
  *
  * const awareness = createAwareness(provider.awareness, {
  *   cursor: null,
