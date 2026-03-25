@@ -1,0 +1,34 @@
+{
+  "name": "yjs-zustand-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:host": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mantine/core": "^7.0.0",
+    "@mantine/hooks": "^7.17.8",
+    "@tabler/icons-react": "^3.40.0",
+    "@use-gesture/react": "^10.3.0",
+    "nanoid": "^5.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "y-protocols": "^1.0.0",
+    "y-webrtc": "^10.3.0",
+    "yjs": "^13.6.0",
+    "yjs-zustand": "file:../../",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "postcss": "^8.4.0",
+    "postcss-preset-mantine": "^1.17.0",
+    "typescript": "^5.4.0",
+    "vite": "^6.0.0"
+  }
+}

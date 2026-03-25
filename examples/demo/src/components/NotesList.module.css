@@ -1,0 +1,10 @@
+.item {
+  border-radius: var(--mantine-radius-sm);
+  cursor: pointer;
+}
+
+.selected {
+  border-radius: var(--mantine-radius-sm);
+  cursor: pointer;
+  background: var(--mantine-color-blue-0);
+}
